@@ -11,7 +11,7 @@ The top responders with the highest standard deviation have no missing data, the
 
 
 ## Data Preprocessing
-I will be addressing the missing data by using mean/median imputation because all of the features and responders are floats. I will also be using a standard scaler to standardize all of the features used in model training. My feature selection will focus on the top 5 responders according to their standard deviation, subsequent model training will focus on the less variable responders. 
+I will be addressing the missing data by using mean/median imputation because all of the features and responders are floats. I will also be using a standard scaler to standardize all of the features used in model training. My feature selection will focus on the top 5 responders according to their standard deviation, subsequent model training will focus on the less variable responders. Remove irrelevant columns and focus in on the most effective features in model training, potentially remove some of the rows to test on individual symbol ids to train on individual symbols. 
 
 ## Link to Notebook
 https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone2/Milestone_2_Explo.ipynb
