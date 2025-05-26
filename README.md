@@ -11,7 +11,25 @@ The top responders with the highest standard deviation have no missing data, the
 
 
 ## Data Preprocessing
-I will be addressing the missing data by using mean/median imputation because all of the features and responders are floats. I will also be using a standard scaler to standardize all of the features used in model training. My feature selection will focus on the top 5 responders according to their standard deviation, subsequent model training will focus on the less variable responders. Remove irrelevant columns and focus in on the most effective features in model training, potentially remove some of the rows to test on individual symbol ids to train on individual symbols. 
+Built a preprocessing pipeline to impute NaNs and infinity values with the median, vectorize the feature columns, and apply a standard scaler to each of the features. This is all done in my pipeline cell that I created at the beginning of my milestone3 notebook. I also chose to split the data into a test training and validation set based on the date_ids, this is to prevent the model from peaking into the future when making its predictions, the training set is based on the first 1350 date_ids, the validation set is from 1351 to 1500, and the test set is any date_id greater than 1500. This puts around 80% of the data in the training set, ~9% in the validation set, and ~12% in the test set. I have not implemented the lags parquet in the training yet as I am still aiming to get a strong baseline. 
+
+## First Models
+I chose a linear regression model to get a baseline knowing that it would perform poorly due to the non-linear correlations in the data noticed during my data-exploration steps. The settings I used for the linear regression model included 100 max iterations, low regulatization at 0.01. 
+
+Linear‑Regression RMSE train 0.9351  | val 0.9274  | test 0.8065
+
+Given this output from the linear regression model I can tell that both models are severely underfitting my data, this is understandable because I only used 5 of 79 features even though they were the top features for responder 7. This suggests that the date_ids after 1500 may be easier to predict than the data that the models were trained on. 
+
+After this model I chose to implement a random-forest regressor attempting to capture the non-linear correlations that were seen in the data. The settings I used for the random-forest regressor were 30 trees (keeping it lower so that the compute time doesn't spike too much), a max depth of 4 to prevent some of the overfitting as well as keeping the comput time lower, and a subsampling rate of 0.6 to decrease compute time and increase the variance in the rows. I definitely plan on adjusting these hyperparameters to increase the performance with more resources from SDSC. 
+
+Random‑Forest RMSE train 0.9349  | val 0.9270  | test 0.8063
+
+The output of my evaluation shows that the model might be underfitting the data based on the high training RMSE with a lower test RMSE, it was not expected that the test RMSE would be so much lower than training and validation. It seems like the data after date_id 1500 might have less variance and therefore be easier for the model to predict. This is something that I will look into as I am training my models further. 
+
+## Future Plans
+Going forward I plan on implementing the lags parquet into the training of my models, this will give more information on the past values of the features. I also plan on using more of the features if not all of them in my final model training, I need to figure out the proper amount of resources to reserve for my session. If I am able to get better modelling of responder 7 I plan on moving on to more responders and training models on multiple responders. The final model that I would like to try and implement is an XGBoost model to improve the performance and hopefully getter a lower RMSE.
+
+Judging off the fact that I did not gain much accuracy from the linear vs non-linear model, I will need to look more into my train, validation, and test split as well as look into implementing more features that will provide more value to the model allowing it to capture the complex relationships between features and responders. 
 
 ## Link to Notebook
 https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone2/Milestone_2_Explo.ipynb
