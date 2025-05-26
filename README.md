@@ -32,7 +32,4 @@ Going forward I plan on implementing the lags parquet into the training of my mo
 Judging off the fact that I did not gain much accuracy from the linear vs non-linear model, I will need to look more into my train, validation, and test split as well as look into implementing more features that will provide more value to the model allowing it to capture the complex relationships between features and responders. 
 
 ## Link to notebook
-
-
-## Link to Notebook
-https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone2/Milestone_2_Explo.ipynb
+https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone3/Milestone_3_frst_mdl.ipynb
