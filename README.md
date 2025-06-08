@@ -18,7 +18,7 @@ The top responders with the highest standard deviation have no missing data, the
 Built a preprocessing pipeline to impute NaNs and infinity values with the median, vectorize the feature columns, and apply a standard scaler to each of the features. This is all done in my pipeline cell that I created at the beginning of my milestone3 notebook. I also chose to split the data into a test training and validation set based on the date_ids, this is to prevent the model from peaking into the future when making its predictions, the training set is based on the first 1350 date_ids, the validation set is from 1351 to 1500, and the test set is any date_id greater than 1500. This puts around 80% of the data in the training set, ~9% in the validation set, and ~12% in the test set. I have not implemented the lags parquet in the training yet as I am still aiming to get a strong baseline. 
 
 ## Model 1
-I chose a linear regression model to get a baseline knowing that it would perform poorly due to the non-linear correlations in the data noticed during my data-exploration steps. The settings I used for the linear regression model included 100 max iterations, low regulatization at 0.01. 
+For my first model choice I chose a linear regression model to get a baeline using a basic model to test the RMSE. The linear regression model included 100 max iterations, low regulatization at 0.01. I knew that the performance wouldn't be great due to the fact that in my exploration I saw that there was very weak linear correlation. 
 
 Linear‑Regression RMSE train 0.9351  | val 0.9274  | test 0.8065
 
@@ -38,11 +38,13 @@ When looking at the predictions from both of the models I was able to train, we 
 
 ## Conclusion
 
+Given the issues that the class was having with the SDSC connection, I wasn't able to complete this project to my liking, but if I had the opportunity I have ideas for what could have improved the performance of my models. I planned on implementing the lags parquet into the training of my models, this will give more information on the past values of the features. I also planned on using more of the features if not all of them in my final model training, I need to figure out the proper amount of resources to reserve for my session. If I am able to get better modelling of responder 7 I plan on moving on to more responders and training models on multiple responders. The final model that I would have liked to implement would be an XGBoost model. Given the nature of the dataset that I chose, the relationships are non-linear and it is hard to narrow down the feature selection. I think that being able to include more impactful features as well as a better model would have significantly improved the performance. Something that I wish I had done from the start would be including the lags-parquet in all of the training. Giving the model training access to the lags parquet would help the model by giving it the values of features and responders from nearby date_ids.
 
-## Future Plans
-Going forward I plan on implementing the lags parquet into the training of my models, this will give more information on the past values of the features. I also plan on using more of the features if not all of them in my final model training, I need to figure out the proper amount of resources to reserve for my session. If I am able to get better modelling of responder 7 I plan on moving on to more responders and training models on multiple responders. The final model that I would like to try and implement is an XGBoost model to improve the performance and hopefully getter a lower RMSE.
+This project has left me with a couple final thoughts, one of which is that I should have done this project in a group. I found that between work and everything else with school I was having trouble finding a whole lot of time to work on the project. I think that doing this in a group would have allowed me to accomplish more by splitting the work up and being able to put in more man hours. I am still proud of what I was able to accomplish but wish that there could have been more. 
 
-Judging off the fact that I did not gain much accuracy from the linear vs non-linear model, I will need to look more into my train, validation, and test split as well as look into implementing more features that will provide more value to the model allowing it to capture the complex relationships between features and responders. 
+## Collaboration
+
+This project was done alone by Brandon Rocchio all contributions made by me.
 
 ## Link to notebook
 https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone3/Milestone_3_frst_mdl.ipynb
