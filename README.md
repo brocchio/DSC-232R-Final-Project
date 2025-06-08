@@ -1,5 +1,6 @@
 ## Environment Setup and Data Download
 Unfortunately due to this being a Kaggle competition we cannot download the dataset directly from the competition page, https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting/data, I was able to find a reupload of the dataset here, https://www.kaggle.com/datasets/mohamedsameh0410/jane-street-dataset. Download the dataset locally and use SSH to rsync the dataset into the SDSC server.
+
 ![image](https://github.com/user-attachments/assets/5b272d75-2d30-4977-a133-91e91c594c15)
 
 ![image](https://github.com/user-attachments/assets/8f872ab1-ab1d-47ff-88d9-e3a63f30919b)
