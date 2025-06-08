@@ -1,7 +1,9 @@
 ## Environment Setup and Data Download
 Unfortunately due to this being a Kaggle competition we cannot download the dataset directly from the competition page, https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting/data, I was able to find a reupload of the dataset here, https://www.kaggle.com/datasets/mohamedsameh0410/jane-street-dataset. Download the dataset locally and use SSH to rsync the dataset into the SDSC server.
-![image](https://github.com/user-attachments/assets/859f856e-ac39-4b72-9c38-b3f96fe68989)
-![image](https://github.com/user-attachments/assets/4621119f-e27b-4fd8-a889-12f754ea9594)
+![image](https://github.com/user-attachments/assets/5b272d75-2d30-4977-a133-91e91c594c15)
+
+![image](https://github.com/user-attachments/assets/8f872ab1-ab1d-47ff-88d9-e3a63f30919b)
+
 
 ## Introduction
 Being able to predict high dimensional time series data is a task that can be critical in many different industries. The goal of my project was to establish a model that would be able to accurately predict anonymized responders from a high dimensional Jane Street Real Time Market Forecasting dataset. In this project there were 79 anonymized features that were related to 9 different responders. This is a project that could be generalized across multiple different projects and tasks. 
