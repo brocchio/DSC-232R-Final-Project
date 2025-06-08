@@ -17,6 +17,16 @@ The top responders with the highest standard deviation have no missing data, the
 
 ![image](https://github.com/user-attachments/assets/119cb104-6085-4e2f-964d-2cf8efd10de6)
 
+After looking into the missing data I chose to make a heatmap showing the correlation of the top features and top responders. This showed that there was very little linear correlation and each of the features has around the same level of correlation to the responders with some correlating with different features better. 
+
+![image](https://github.com/user-attachments/assets/d047823d-92de-47d5-87dc-631b1c9db422)
+
+
+Looking into the top responders and their distributions resulted in this visualization, this led to me try and predict one of these responders with my models. 
+
+![image](https://github.com/user-attachments/assets/7a7c7363-227d-4c97-ae3a-49a9a9c6de38)
+
+
 ## 2. Data Preprocessing
 Built a preprocessing pipeline to impute NaNs and infinity values with the median, vectorize the feature columns, and apply a standard scaler to each of the features. This is all done in my pipeline cell that I created at the beginning of my milestone3 notebook. I also chose to split the data into a test training and validation set based on the date_ids, this is to prevent the model from peaking into the future when making its predictions, the training set is based on the first 1350 date_ids, the validation set is from 1351 to 1500, and the test set is any date_id greater than 1500. This puts around 80% of the data in the training set, ~9% in the validation set, and ~12% in the test set. I have not implemented the lags parquet in the training yet as I am still aiming to get a strong baseline. 
 
