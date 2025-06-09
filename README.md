@@ -19,7 +19,8 @@ The top responders with the highest standard deviation have no missing data, the
 
 After looking into the missing data I chose to make a heatmap showing the correlation of the top features and top responders. This showed that there was very little linear correlation and each of the features has around the same level of correlation to the responders with some correlating with different features better. 
 
-![image](https://github.com/user-attachments/assets/d047823d-92de-47d5-87dc-631b1c9db422)
+![image](https://github.com/user-attachments/assets/6b318636-d64a-4cf3-afb9-22f5cbca853c)
+
 
 
 Looking into the top responders and their distributions resulted in this visualization, this led to me try and predict one of these responders with my models. 
