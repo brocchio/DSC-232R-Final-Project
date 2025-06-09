@@ -33,7 +33,7 @@ Looking into the top responders and their distributions resulted in this visuali
 Built a preprocessing pipeline to impute NaNs and infinity values with the median, vectorize the feature columns, and apply a standard scaler to each of the features. This is all done in my pipeline cell that I created at the beginning of my milestone3 notebook. I also chose to split the data into a test training and validation set based on the date_ids, this is to prevent the model from peaking into the future when making its predictions, the training set is based on the first 1350 date_ids, the validation set is from 1351 to 1500, and the test set is any date_id greater than 1500. This puts around 80% of the data in the training set, ~9% in the validation set, and ~12% in the test set. I have not implemented the lags parquet in the training yet as I am still aiming to get a strong baseline. 
 
 ## Model 1 Linear Regression
-For my first model choice I chose a linear regression model to establish a baseline for the RMSE of my models. The linear regression model included 100 max iterations, low regulatization at 0.01. Due to the weak linear correlations that were noted in the data exploration, I anticipated that the model would underperform.
+For my first model choice I chose a linear regression model to establish a baseline for the RMSE of my models. The linear regression model included 100 max iterations, low regularization at 0.01. Due to the weak linear correlations that were noted in the data exploration, I anticipated that the model would underperform.
 
 ## Model 2 Random Forest
 
@@ -55,7 +55,7 @@ The output of my evaluation shows that the model might be underfitting the data 
 
 ## Discussion
 
-When looking at the predictions from both of the models I was able to train, we can see that both have very similar results of a sever underfitting. This could mean that the data past date_id 1500 have lower variance and therfore be easier to predict than the first 1500. I was only able to use 5 features in my decision tree model which likely had a large impact on the accuracy of my models given the low variance of each of the features. If I was able to continue with my experimentation, I would aim to use more features in my future models, implement the lag parquets into the training of the model. With my later models I would be able to tune the hyperparameters more in depth as well. 
+When looking at the predictions from both of the models I was able to train, we can see that both have very similar results of a sever underfitting. This could mean that the data past date_id 1500 have lower variance and therefore be easier to predict than the first 1500. I was only able to use 5 features in my decision tree model which likely had a large impact on the accuracy of my models given the low variance of each of the features. If I was able to continue with my experimentation, I would aim to use more features in my future models, implement the lag parquets into the training of the model. With my later models I would be able to tune the hyperparameters more in depth as well. 
 
 I think that one of my biggest problems was the fact that the dataset was fully anonymized. This is something I am not very familiar with so there was a steep learning curve, and clearly I still did not entirely understand the best methods for feature selection. 
 
