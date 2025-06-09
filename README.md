@@ -31,14 +31,14 @@ Looking into the top responders and their distributions resulted in this visuali
 ## 2. Data Preprocessing
 Built a preprocessing pipeline to impute NaNs and infinity values with the median, vectorize the feature columns, and apply a standard scaler to each of the features. This is all done in my pipeline cell that I created at the beginning of my milestone3 notebook. I also chose to split the data into a test training and validation set based on the date_ids, this is to prevent the model from peaking into the future when making its predictions, the training set is based on the first 1350 date_ids, the validation set is from 1351 to 1500, and the test set is any date_id greater than 1500. This puts around 80% of the data in the training set, ~9% in the validation set, and ~12% in the test set. I have not implemented the lags parquet in the training yet as I am still aiming to get a strong baseline. 
 
-## Model 1
+## Model 1 Linear Regression
 For my first model choice I chose a linear regression model to get a baeline using a basic model to test the RMSE. The linear regression model included 100 max iterations, low regulatization at 0.01. I knew that the performance wouldn't be great due to the fact that in my exploration I saw that there was very weak linear correlation. 
 
 Linear‑Regression RMSE train 0.9351  | val 0.9274  | test 0.8065
 
 Given this output from the linear regression model I can tell that both models are severely underfitting my data, this is understandable because I only used 5 of 79 features even though they were the top features for responder 7. This suggests that the date_ids after 1500 may be easier to predict than the data that the models were trained on. 
 
-## Model 2
+## Model 2 Random Forest
 
 After this model I chose to implement a random-forest regressor attempting to capture the non-linear correlations that were seen in the data. The settings I used for the random-forest regressor were 30 trees (keeping it lower so that the compute time doesn't spike too much), a max depth of 4 to prevent some of the overfitting as well as keeping the comput time lower, and a subsampling rate of 0.6 to decrease compute time and increase the variance in the rows. I had to adjust the settings so that I would be able to train the model in a reasonable amount of time without using too much of the SDSC resources. 
 
@@ -49,6 +49,8 @@ The output of my evaluation shows that the model might be underfitting the data 
 ## Discussion
 
 When looking at the predictions from both of the models I was able to train, we can see that both have very similar results of a sever underfitting. This could mean that the data past date_id 1500 have lower variance and therfore be easier to predict than the first 1500. I was only able to use 5 features in my decision tree model which likely had a large impact on the accuracy of my models given the low variance of each of the features. If I was able to continue with my experimentation, I would aim to use more features in my future models, implement the lag parquets into the training of the model. With my later models I would be able to tune the hyperparameters more in depth as well. 
+
+I think that one of my biggest problems was the fact that the dataset was fully anonymized. This is something I am not very familiar with so there was a steep learning curve, and clearly I still did not entirely understand the best methods for feature selection. 
 
 ## Conclusion
 
