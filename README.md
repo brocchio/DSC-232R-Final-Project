@@ -68,6 +68,4 @@ This project has left me with a couple final thoughts, one of which is that I sh
 ## Collaboration
 
 This project was done individually by Brandon Rocchio, all contributions made by me.
-
-## Link to notebook
-https://github.com/brocchio/DSC-232R-Final-Project/blob/Milestone3/Milestone_3_frst_mdl.ipynb
+https://github.com/brocchio/DSC-232R-Final-Project/blob/main/Milestone_3_frst_mdl.ipynb
