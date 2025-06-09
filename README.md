@@ -41,13 +41,17 @@ After this model I chose to implement a random-forest regressor attempting to ca
 
 ## Results
 
-Random‑Forest RMSE train 0.9349  | val 0.9270  | test 0.8063
-
-The output of my evaluation shows that the model might be underfitting the data based on the high training RMSE with a lower test RMSE, it was not expected that the test RMSE would be so much lower than training and validation. It seems like the data after date_id 1500 might have less variance and therefore be easier for the model to predict. This is something that planned on looking into but was unable to due to the issues with SDSC during this time.
-
-Linear‑Regression RMSE train 0.9351  | val 0.9274  | test 0.8065
+| Model             | Train RMSE | Validation RMSE | Test RMSE |
+|------------------|------------|------------------|-----------|
+| Linear Regression| 0.9351     | 0.9274           | 0.8065    |
 
 Given this output from the linear regression model I can tell that both models are severely underfitting my data, this is understandable because I only used 5 of 79 features even though they were the top features for responder 7. This suggests that the date_ids after 1500 may be easier to predict than the data that the models were trained on. 
+
+| Model             | Train RMSE | Validation RMSE | Test RMSE |
+|------------------|------------|------------------|-----------|
+| Random Forest     | 0.9349     | 0.9270           | 0.8063    |
+
+The output of my evaluation shows that the model might be underfitting the data based on the high training RMSE with a lower test RMSE, it was not expected that the test RMSE would be so much lower than training and validation. It seems like the data after date_id 1500 might have less variance and therefore be easier for the model to predict. This is something that planned on looking into but was unable to due to the issues with SDSC during this time.
 
 ## Discussion
 
