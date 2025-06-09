@@ -1,3 +1,8 @@
+## Introduction
+Being able to predict high dimensional time series data is a task that can be critical in many different industries. The goal of my project was to establish a model that would be able to accurately predict anonymized responders from a high dimensional Jane Street Real Time Market Forecasting dataset. In this project there were 79 anonymized features that were related to 9 different responders. This is a project that could be generalized across multiple different projects and tasks. 
+
+## Methods
+
 ## Environment Setup and Data Download
 Unfortunately due to this being a Kaggle competition we cannot download the dataset directly from the competition page, https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting/data, I was able to find a reupload of the dataset here, https://www.kaggle.com/datasets/mohamedsameh0410/jane-street-dataset. Download the dataset locally and use SSH to rsync the dataset into the SDSC server.
 
@@ -6,10 +11,6 @@ Unfortunately due to this being a Kaggle competition we cannot download the data
 ![image](https://github.com/user-attachments/assets/8f872ab1-ab1d-47ff-88d9-e3a63f30919b)
 
 
-## Introduction
-Being able to predict high dimensional time series data is a task that can be critical in many different industries. The goal of my project was to establish a model that would be able to accurately predict anonymized responders from a high dimensional Jane Street Real Time Market Forecasting dataset. In this project there were 79 anonymized features that were related to 9 different responders. This is a project that could be generalized across multiple different projects and tasks. 
-
-## Methods
 
 ## 1. Data Exploration and Analysis
 The dataset that I am using is a real time market forecasting dataset from Janestreet. The dataset consists of a set of timeseries data with 79 features and 9 responders, all anonymized. The goal is to accurately predict the responder variables based off of the features. One of the difficulties that I ran into were the anonymized features, this led me to use standard deviation as the main method to decide on which features are the most valuable. The columns are date, time and symbol ids, along with weight, features 0-78, and responder 0-8. The data files included are the train parquet consisting of 47127338 observations. The lags parquet contains the responders offset by one date id, this shows the value of the responders at a later point in time. The weights features and responders are all flot values generally centered around 0.
