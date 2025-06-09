@@ -40,11 +40,11 @@ Given this output from the linear regression model I can tell that both models a
 
 ## Model 2
 
-After this model I chose to implement a random-forest regressor attempting to capture the non-linear correlations that were seen in the data. The settings I used for the random-forest regressor were 30 trees (keeping it lower so that the compute time doesn't spike too much), a max depth of 4 to prevent some of the overfitting as well as keeping the comput time lower, and a subsampling rate of 0.6 to decrease compute time and increase the variance in the rows. I definitely plan on adjusting these hyperparameters to increase the performance with more resources from SDSC. 
+After this model I chose to implement a random-forest regressor attempting to capture the non-linear correlations that were seen in the data. The settings I used for the random-forest regressor were 30 trees (keeping it lower so that the compute time doesn't spike too much), a max depth of 4 to prevent some of the overfitting as well as keeping the comput time lower, and a subsampling rate of 0.6 to decrease compute time and increase the variance in the rows. I had to adjust the settings so that I would be able to train the model in a reasonable amount of time without using too much of the SDSC resources. 
 
 Random‑Forest RMSE train 0.9349  | val 0.9270  | test 0.8063
 
-The output of my evaluation shows that the model might be underfitting the data based on the high training RMSE with a lower test RMSE, it was not expected that the test RMSE would be so much lower than training and validation. It seems like the data after date_id 1500 might have less variance and therefore be easier for the model to predict. This is something that I will look into as I am training my models further. 
+The output of my evaluation shows that the model might be underfitting the data based on the high training RMSE with a lower test RMSE, it was not expected that the test RMSE would be so much lower than training and validation. It seems like the data after date_id 1500 might have less variance and therefore be easier for the model to predict. This is something that planned on looking into but was unable to due to the issues with SDSC during this time.
 
 ## Discussion
 
